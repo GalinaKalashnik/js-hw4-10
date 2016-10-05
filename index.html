@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js hw4</title>
+	</head>
+	<body>
+	<script>
+
+/*1 создать функцию, которая принимает массив, а возвращает новый массив
+с дублированными элементами входного массива*/
+var arr = [1, 2, 3];
+
+function getDoubleArr(){
+	newArr = arr.slice();
+	var doubleArr = arr.concat(newArr);
+	document.write(doubleArr);
+};
+getDoubleArr();
+document.write('<br>'+'<br>');
+
+/*2 получить последний элемент массива(массив не менять). Использовать функцию*/
+
+function getLastElArr(){
+	document.write(arr[arr.length -1]);
+};
+getLastElArr();
+document.write('<br>'+'<br>');
+
+
+/*3 Создать функцию, которая принимает число N и возвращает массив, заполненный числами от 1 до N: getArray(10);*/
+
+
+function getArray(n){
+	var newArray = [];
+	for(i = 1; i <= n; i++){
+		newArray.push(i);
+	}
+	return newArray;
+}
+var array = getArray(10);
+document.write(array);
+document.write('<br>'+'<br>');
+
+
+/*4 создать функцию, которая принимае произвольно число массивов и удаляет из каждого первый эл, а возвращает массив из оставшихся значений*/
+
+function changeCollection(){
+	var arr = [];
+	for(var i = 0; i < arguments.length; i++){
+		 arguments[i].shift(0);
+		 arr.push(arguments[i]);
+	}
+	return arr;
+}
+var arrOfArr = changeCollection([1, 2, 3], ['a', 'b', 'c']);
+document.write(arrOfArr);
+document.write('<br>'+'<br>');   
+
+
+/*(1) 5 Дана произвольная строка "bcdaeflmjkhi", упорядочить буквы по флфавиту и вернуть строку с буквами в обратном порядке "mlkjihgfrdcba"*/
+
+function alphabetBackSort(srting){
+	var getArr = srting.split('');
+	var sortArr = getArr.sort();
+	var reverseArr = getArr.reverse();
+	var stringFromArr = reverseArr.join('');
+	return stringFromArr;
+}
+
+var alphabetBackSort = alphabetBackSort('bcdaeflmjkhi');
+document.write(alphabetBackSort);
+document.write('<br>'+'<br>');
+
+
+/*(2) 6 отсортировать массив [2, 4, 7, 1, -2, 10, -9], в обратном порядке[10, 7, 4, 2, 2, 1, -2, -9]*/
+var backSortArr = [2, 4, 7, 1, -2, 10, -9]
+function sortArr(a, b){
+	return b - a;
+}
+backSortArr.sort(sortArr);
+document.write(backSortArr);
+document.write('<br>'+'<br>');
+
+/* (3) 7 написать функцию, которая принимает 3 аргумента: произвольный массив и 2 числа, первое из которых означает начальный номер эл в массиве, второе конечный номер. Функция должна вернуть новый массив, состоящий из эл первой коллекции согласно аргументам (с - по): getNewArr(['a', 'b', 'c', 'd', 'e', 'f'], 2, 4) = ['c', 'd', 'e']*/
+
+function getNewArr(arr, first, last){
+	var newArr = arr.slice(first, last + 1);
+	return newArr;
+};
+var getNewArrRes = getNewArr(['a', 'b', 'c', 'd', 'e', 'f'], 2, 4);
+document.write(getNewArrRes);
+document.write('<br>'+'<br>');
+
+/*(4) 8 удвоить все элементы массива, не используя циклы ['one', 2, 'three', 4]*/
+var doublingArr = ['one', 2, 'three', 4];
+function getDoublingArr(){
+	newArr = doublingArr.slice();
+	var doublingArrRes = newArr.concat(newArr);
+	document.write(doublingArrRes);
+};
+getDoublingArr();
+document.write('<br>'+'<br>');
+
+/* (5) 9 удалить из [1, 2, 3, 4, 5] второй и третий эл (3,4)*/
+
+var arr3 = [1, 2, 3, 4, 5];
+function delElFromArr(){
+	arr3.splice(2, 2);
+	document.write(arr3);
+};
+delElFromArr();
+document.write('<br>'+'<br>');
+
+/* (6) 10 удалить из [1, 2, 3, 4, 5] второй и третий эл (3,4), и на их место вставить 'three', 'four'*/
+
+var arr4 = [1, 2, 3, 4, 5];
+function delAndPutElArr(){
+	arr4.splice(2, 2, 'three', 'four');
+	document.write(arr4);
+};
+delAndPutElArr();
+document.write('<br>'+'<br>');
+
+/* (7) 11 вставить в произвольный массив полсе третьего эл любое значение, ['I', 'am', 'an', 'arrey'],  ['I', 'am', 'an', 'awesome' 'arrey']*/
+
+var awesome = ['I', 'am', 'an', 'arrey'];
+function PutElArr(){
+	awesome.splice(2, 0, 'awesome');
+	document.write(awesome);
+};
+PutElArr();
+document.write('<br>'+'<br>');
+
+/* (8) 12 отсортируйте массив массивов так, что бв=ы в начале располагались наименьшие массивы: [[14, 45], [1], ['a', 'b', 'c']*/
+var getSortArrs = [[14, 45], [1], ['a', 'b', 'c']];
+function sortArrs(a, b){
+	return a.length - b.length;
+}
+getSortArrs.sort(sortArrs);
+document.write(getSortArrs);
+document.write('<br>'+'<br>');
+
+
+/* (9) 13 coздайте копию произвольного массива*/
+
+//slice
+
+var copyArr = ['I', 'am', 'awesome'];
+
+function getcopyArr(){
+	copyNewArr = copyArr.slice();
+	document.write(copyNewArr);
+};
+document.write(copyArr);
+document.write('<br>');
+getcopyArr();
+document.write('<br>'+'<br>');
+
+//concat
+
+var concatArr = ['You', 'are', 'awesome'];
+
+function getcCncatArr(){
+	newConcatArr = concatArr.concat();
+	document.write(newConcatArr);
+};
+document.write(concatArr);
+document.write('<br>');
+getcCncatArr();
+document.write('<br>'+'<br>');
+
+
+/* (10) 14 отсортировать массив объектов по их возрастающему количеству ядер ()cores*/
+
+var compInfo = [
+	{cpu: 'intel', info:{cores:2, cache: 3}},
+	{cpu: 'intel', info:{cores:4, cache: 4}},
+	{cpu: 'intel', info:{cores:1, cache: 1}},
+	{cpu: 'intel', info:{cores:3, cache: 2}},
+	{cpu: 'intel', info:{cores:4, cache: 2}}
+];
+function sortCores(first, second){
+	return first.info.cores - second.info.cores;
+};
+compInfo.sort(sortCores);
+console.log(compInfo);
+document.write('<br>'+'<br>');
+
+/* (11) 15 создать функцию, которая будет принимать массив продуктов и две цены, функция должна вернуть все продукты, цена которых находится в указанном диапазоне и отсортировать их от дешевых к дорогим*/
+
+
+function filterCollection(arr, min, max){
+	var newCollection = [];
+	for(var i = 0; i < arr.length; i++){
+		if(arr[i].price >= min && arr[i].price <= max){
+			newCollection.push(arr[i]);
+		   };
+	};
+	newCollection.sort(sortCollection);
+	return newCollection;
+	
+};
+function sortCollection(first, second){
+	return first.price - second.price;
+};
+
+let products = [
+	{title: 'prod1', price: 5.2}, {title: 'prod2', price: 0.18},
+	{title: 'prod3', price: 15}, {title: 'prod4', price: 25},
+	{title: 'prod5', price: 18.9}, {title: 'prod6', price: 8},
+	{title: 'prod7', price: 19}, {title: 'prod8', price: 63}
+];
+
+
+var sortProducts = filterCollection(products, 15, 30);
+console.log(sortProducts);
+document.write('<br>'+'<br>');
+
+
+//Дата и время 
+// 1 написать функцию, которая принимает год, а возвращает день первого января этого года, день должен быть в русском формате
+function dayOfTheWeek(n){
+	var day = "";
+	switch(n){
+		case 0:
+			day = "воскресенье";
+			break;
+		case 1:
+			day = "понедельник";
+			break;
+		case 2:
+			day = "вторник";
+			break;
+		case 3:
+			day = "среда";
+			break;
+		case 4:
+			day = "четверг";
+			break;
+		case 5:
+			day = "пятница";
+			break;
+		case 6:
+			day = "суббота";
+			break;
+	}
+	return day;
+};
+
+function firstDayOfYear(n){
+	var firstDay = new Date(n, 0, 1);
+	return dayOfTheWeek(firstDay.getDay());
+};
+
+var firstDayOfYearRes = firstDayOfYear(2016);
+document.write(firstDayOfYearRes);
+document.write('<br>'+'<br>');
+
+
+// 2 написать ф-цию, которая принимает дату в виде строки "29.03.1985", а возвращает день в русском формате
+
+
+function dayOfData(n){
+	var dataToArr = n.split('.');
+	var date = new Date(dataToArr[2], dataToArr[1] - 1, dataToArr[0]);
+	return dayOfTheWeek(date.getDay());
+};
+
+var dayOfDataRes = dayOfData('29.03.1985');
+document.write(dayOfDataRes);
+document.write('<br>'+'<br>');
+
+// 3  узнать сколько прошло полных недель с начала года до сегоднешней даты
+
+function countWeeks(){
+	var firstDate = new Date(2016, 0, 1);
+	var secondDate = new Date();
+	var howManyWeeks = Math.round((secondDate - firstDate)/(1000*60*60*24*7));
+	return howManyWeeks;
+};
+
+var countWeeksRes = countWeeks();
+document.write(countWeeksRes);
+document.write('<br>'+'<br>');
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+	</script>
+	</body>
+</html>
